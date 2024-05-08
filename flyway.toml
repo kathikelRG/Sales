@@ -8,7 +8,7 @@ locations = [ "filesystem:migrations" ]
 mixed = true
 outOfOrder = true
 validateMigrationNaming = true
-baselineVersion = "001_20240507180572"
+baselineVersion = "001_20240508110599"
 baselineOnMigrate = true
 
   [flyway.check]
