@@ -1,0 +1,21 @@
+﻿SET NUMERIC_ROUNDABORT OFF
+GO
+SET ANSI_PADDING, ANSI_WARNINGS, CONCAT_NULL_YIELDS_NULL, ARITHABORT, QUOTED_IDENTIFIER, ANSI_NULLS ON
+GO
+PRINT N'Dropping foreign keys from [dbo].[INVOICE]'
+GO
+ALTER TABLE [dbo].[INVOICE] DROP CONSTRAINT [in_cust_fk]
+GO
+PRINT N'Altering [dbo].[INVOICE]'
+GO
+ALTER TABLE [dbo].[INVOICE] ADD
+[invoice_customer_id] [varchar] (10) NULL
+GO
+ALTER TABLE [dbo].[INVOICE] DROP
+COLUMN [customer_id]
+GO
+PRINT N'Adding foreign keys to [dbo].[INVOICE]'
+GO
+ALTER TABLE [dbo].[INVOICE] ADD CONSTRAINT [in_cust_fk] FOREIGN KEY ([invoice_customer_id]) REFERENCES [dbo].[CUSTOMER] ([customer_id])
+GO
+
