@@ -1,8 +1,10 @@
-SET QUOTED_IDENTIFIER ON
+﻿SET NUMERIC_ROUNDABORT OFF
 GO
-SET ANSI_NULLS ON
+SET ANSI_PADDING, ANSI_WARNINGS, CONCAT_NULL_YIELDS_NULL, ARITHABORT, QUOTED_IDENTIFIER, ANSI_NULLS ON
 GO
-CREATE   PROC [dbo].[spGetTopCustomers] AS;
+PRINT N'Altering [dbo].[spGetTopCustomers]'
+GO
+ALTER   PROC [dbo].[spGetTopCustomers] AS;
     --Use window function to rank customers sorted by most invoices
     --Return their ids and invoice count
 
@@ -24,3 +26,4 @@ CREATE   PROC [dbo].[spGetTopCustomers] AS;
              c.customer_id;
 
 GO
+
